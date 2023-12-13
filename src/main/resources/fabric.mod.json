@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "mod_veille",
+	"id": "veille",
 	"version": "${version}",
 	"name": "veille",
 	"description": "Mod pour le cours de veille",
