@@ -23,8 +23,7 @@ public class CrossItem extends Item {
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
 
-        //todo check is entity type is demon
-
+        //ajoute le nom de ton entity ici
         if (!user.getWorld().isClient &&  entity.getType().getName().getString().contains("tree_demon")) {
             entity.kill();
             stack.decrement(1);

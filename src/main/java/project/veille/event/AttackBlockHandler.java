@@ -20,13 +20,14 @@ import static project.veille.entity.ModEntities.TREE_DEMON;
 
 public class AttackBlockHandler implements AttackBlockCallback {
 
+    // 1 = 100%
+    // On check si tu frape du wood si oui jte spawn mon demon
     double spawnProbability = 1;
 
     @Override
     public ActionResult interact(PlayerEntity player, World world, Hand hand, BlockPos pos, Direction direction) {
 
         double random = Math.random();
-
 
         if (!world.isClient && isBlockWood(world.getBlockState(pos)) && random < spawnProbability) {
             TreeDemonEntity treeDemonEntity = new TreeDemonEntity(TREE_DEMON, world);
