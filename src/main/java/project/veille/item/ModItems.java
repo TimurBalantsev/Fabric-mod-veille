@@ -6,14 +6,19 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import project.veille.Veille;
+import project.veille.entity.ModEntities;
+import project.veille.item.custom.CrossItem;
 
 public class ModItems {
 
-    public static final Item CROSS = registerItem("cross", new Item(new FabricItemSettings()));
+    public static final Item CROSS = registerItem("cross", new CrossItem(new FabricItemSettings()));
+
+    public static Item TREE_DEMON_EGG = registerItem("tree_demon_egg", new SpawnEggItem(ModEntities.TREE_DEMON, 0xffd700,0xffd700, new FabricItemSettings()));
 
     public static void addItemsToCombatTabItemGroup(FabricItemGroupEntries entries){
         entries.add(CROSS);
@@ -22,6 +27,8 @@ public class ModItems {
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Veille.MOD_ID, name), item);
     }
+
+
 
     public static void registerModItems() {
         Veille.LOGGER.info("Registering mod items for " + Veille.MOD_ID);

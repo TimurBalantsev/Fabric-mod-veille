@@ -18,6 +18,7 @@ public class ModItemGroups {
                     .displayName(Text.translatable("itemgroup.veille"))
                     .icon(() -> new ItemStack(ModItems.CROSS)).entries((displayContext, entries) -> {
                         entries.add(ModItems.CROSS);
+                        entries.add(ModItems.TREE_DEMON_EGG);
                     })
                     .build()
     );
