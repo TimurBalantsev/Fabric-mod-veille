@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
-	"id": "veille",
+	"id": "mod_veille",
 	"version": "${version}",
 	"name": "veille",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Mod pour le cours de veille",
 	"authors": [
 		"Me!"
 	],
@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
 			"project.veille.Veille"
+		],
+		"client": [
+			"project.veille.VeilleClient"
 		],
 		"fabric-datagen": [
 			"project.veille.VeilleDataGenerator"
