@@ -1,3 +1,4 @@
 {
-  "item.veille.cross" : "Cross"
+  "item.veille.cross" : "Cross",
+  "itemgroup.veille": "Veille group"
 }
