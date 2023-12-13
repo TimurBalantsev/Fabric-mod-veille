@@ -24,7 +24,7 @@ public class CrossItem extends Item {
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
 
         //ajoute le nom de ton entity ici
-        if (!user.getWorld().isClient &&  entity.getType().getName().getString().contains("tree_demon")) {
+        if (!user.getWorld().isClient &&  entity.getType().getName().getString().contains("Tree Demon")) {
             entity.kill();
             stack.decrement(1);
             user.sendMessage(Text.literal("The demon has been exorcised"));
