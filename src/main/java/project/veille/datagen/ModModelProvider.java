@@ -23,5 +23,6 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.TREE_DEMON_EGG, new Model(Optional.of(new Identifier("item/template_spawn_egg")),Optional.empty()));
+        itemModelGenerator.register(ModItems.BLOCKLOR_EGG, new Model(Optional.of(new Identifier("item/template_spawn_egg")),Optional.empty()));
     }
 }

@@ -19,6 +19,7 @@ public class ModItemGroups {
                     .icon(() -> new ItemStack(ModItems.CROSS)).entries((displayContext, entries) -> {
                         entries.add(ModItems.CROSS);
                         entries.add(ModItems.TREE_DEMON_EGG);
+                        entries.add(ModItems.BLOCKLOR_EGG);
                     })
                     .build()
     );

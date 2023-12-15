@@ -2,5 +2,8 @@
   "item.veille.cross" : "Cross",
   "entity.veille.tree_demon" : "Tree Demon",
   "item.veille.tree_demon_egg" : "Tree Demon Egg",
-  "itemgroup.veille": "Veille group"
+  "itemgroup.veille": "Veille group",
+
+  "entity.veille.blocklor" : "Blocklor",
+  "entity.veille.blocklor_egg" : "Blocklor Egg"
 }

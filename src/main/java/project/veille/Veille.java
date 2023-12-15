@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import project.veille.entity.ModEntities;
+import project.veille.entity.custom.BlocklorEntity;
 import project.veille.entity.custom.TreeDemonEntity;
 import project.veille.event.AttackBlockHandler;
 import project.veille.item.ModItemGroups;
@@ -27,6 +28,7 @@ public class Veille implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		FabricDefaultAttributeRegistry.register(ModEntities.TREE_DEMON, TreeDemonEntity.createTreeDemonAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.BLOCKLOR, BlocklorEntity.createBlocklorAttributes());
 		AttackBlockCallback.EVENT.register(new AttackBlockHandler());
 	}
 }

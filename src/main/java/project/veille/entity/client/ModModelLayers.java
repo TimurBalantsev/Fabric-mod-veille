@@ -7,4 +7,6 @@ import project.veille.Veille;
 public class ModModelLayers {
     public static final EntityModelLayer TREE_DEMON =
             new EntityModelLayer(new Identifier(Veille.MOD_ID,"tree_demon"),"main");
+    public static final EntityModelLayer BLOCKLOR =
+            new EntityModelLayer(new Identifier(Veille.MOD_ID,"blocklor"),"main");
 }

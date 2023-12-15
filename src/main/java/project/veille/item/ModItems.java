@@ -20,6 +20,8 @@ public class ModItems {
 
     public static Item TREE_DEMON_EGG = registerItem("tree_demon_egg", new SpawnEggItem(ModEntities.TREE_DEMON, 0xffd700,0xffd700, new FabricItemSettings()));
 
+    public static Item BLOCKLOR_EGG = registerItem("blocklor_egg", new SpawnEggItem(ModEntities.BLOCKLOR, 0x000000,0x000000, new FabricItemSettings()));
+
     public static void addItemsToCombatTabItemGroup(FabricItemGroupEntries entries){
         entries.add(CROSS);
     }
