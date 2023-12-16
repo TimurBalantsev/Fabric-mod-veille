@@ -20,6 +20,6 @@ public class ModEntities {
     public static final EntityType<BlocklorEntity> BLOCKLOR = Registry.register(
             Registries.ENTITY_TYPE,
             new Identifier(Veille.MOD_ID, "blocklor"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BlocklorEntity::new).dimensions(EntityDimensions.fixed(1f, 2f)).build()
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BlocklorEntity::new).dimensions(EntityDimensions.fixed(2f, 3f)).build()
     );
 }
