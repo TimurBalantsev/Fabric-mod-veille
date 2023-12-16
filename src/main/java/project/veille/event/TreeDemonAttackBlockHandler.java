@@ -1,14 +1,9 @@
 package project.veille.event;
 
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -18,7 +13,7 @@ import project.veille.entity.custom.TreeDemonEntity;
 
 import static project.veille.entity.ModEntities.TREE_DEMON;
 
-public class AttackBlockHandler implements AttackBlockCallback {
+public class TreeDemonAttackBlockHandler implements AttackBlockCallback {
 
     // 1 = 100%
     // On check si tu frape du wood si oui jte spawn mon demon

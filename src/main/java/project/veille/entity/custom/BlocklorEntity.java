@@ -1,12 +1,11 @@
 package project.veille.entity.custom;
 
-import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.EntityPose;
-import net.minecraft.entity.EntityType;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,8 +13,17 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import project.veille.Veille;
+
+import java.util.List;
+import java.util.Objects;
 
 
 public class BlocklorEntity extends HostileEntity {
@@ -23,6 +31,8 @@ public class BlocklorEntity extends HostileEntity {
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState transformationState = new AnimationState();
 
+    private PlayerEntity targetPlayer;
+    public static final Logger LOGGER = LoggerFactory.getLogger(Veille.MOD_ID);
     public final AnimationState stillState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
@@ -72,6 +82,40 @@ public class BlocklorEntity extends HostileEntity {
             }
         }
     }
+
+    // si le blocklor recoit des dégats d'une pioche en or il prend des dégats sinon il n'en prend pas
+    @Override
+    public boolean damage(DamageSource source, float amount) {
+        if (source.getAttacker() != null){
+            if (((PlayerEntity) source.getAttacker()).getMainHandStack().getItem() == Items.GOLDEN_PICKAXE){
+                return super.damage(source, amount);
+            }
+        }
+        return false;
+    }
+
+    // arrete de bouger quand le blocklor est dans le champ de vision du joueur
+    @Override
+    public boolean canTarget(LivingEntity target) {
+        if (target instanceof PlayerEntity) {
+            return isInPlayerLineOfSight((PlayerEntity) target);
+        }
+        return false; // Or handle other cases accordingly
+    }
+
+    private boolean isInPlayerLineOfSight(PlayerEntity player) {
+        Vec3d playerLookVec = player.getRotationVec(1.0F).normalize();
+        Vec3d entityToPlayerVec = player.getCameraPosVec(1.0F).subtract(getCameraPosVec(1.0F)).normalize();
+
+        double dotProduct = playerLookVec.dotProduct(entityToPlayerVec);
+
+        // Adjust the threshold as needed
+        return dotProduct > 0.5; // If the dot product is greater than 0.5, the player is facing the entity
+    }
+
+
+
+
 
     @Nullable
     @Override
